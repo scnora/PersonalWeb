@@ -1,0 +1,77 @@
+/* Styling the body with a background color and padding */
+body {
+    background-color: #fbbce3; /* Light background color */
+    padding: 20px; /* Space between the content and the edge of the page */
+    font-family: 'Courier New', Courier, monospace;
+ }
+
+ /* Styling the header text */
+ h1 {
+    text-align: center; /* Center-aligning the header text */
+    font-size: 35px; /* Font size */
+    margin-bottom: 20px; /* Space below the header */
+    font-weight: 1000; /* Sets the weight equivalent to bold */
+ }
+ 
+ 
+ /* Styling the links in the navigation list */
+ ul {
+    text-align: center; /* Center-aligns the list */
+    padding: 10px; /* Removes padding from the unordered list */
+    border: 2px solid #000; /* Black border around the list */
+    background-color: #e4cdff; /* Light yellow background for the list */
+    font-style: italic; /* Italicize the text */
+ }
+ .ul { 
+   width: 300px; /* Content width */ 
+   padding: 20px; /* Space between content and border */ 
+   border: 5px solid darkblue; /* Border thickness and style */ margin: 30px; /* Space outside the border*/ 
+   background-color: lightblue; 
+   font-size: 16px; }
+   
+ 
+ 
+ ul li {
+    display: inline; /* Makes the list horizontal */
+    margin: 0 10px; /* Adds space between the links */
+ }
+ 
+ 
+ ul li a {
+    color: #8b0045; /* Link color */
+ }
+ 
+ 
+ /* Styling the image */
+ img {
+    display: block;
+    width: 300px; /* Sets width for the image */
+    margin: 20px auto; /* Center the image and add margin */
+ }
+ 
+ 
+ /* Styling the subheadings */
+ h2 {
+    color: #4b0082; /* Subheading text color */
+    font-size: 25px; /* Font size */
+    margin-top: 30px; /* Adds space above subheadings */
+ }
+ 
+ 
+ /* Styling the paragraphs */
+ p {
+    font-size: 18px; /* Font size for readability */
+    color: #333; /* Dark text color */
+    margin-bottom: 20px; /* Space below the paragraphs */
+ }
+ 
+ 
+ /* Styling list items */
+ ol li {
+    color: #c361d0; /* List item text color */
+    font-size: 15px; /* Font size */
+    padding: 5px 0; /* Space within each list item */
+ }
+ 
+ 
+ 
