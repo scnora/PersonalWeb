@@ -3,47 +3,53 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <img src="image/banner.png" id="banner">
+   
    <link rel="stylesheet" href="style.css">
-   <title>My Website!</title>
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body>
-   <h1>Welcome to My Website!</h1>
+    <header class="header">
+        <a href="#home" class="logo">Sarai <span> Ojeda</span></a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Work</a>
+            <a href="#contact">Home</a>
+        </nav>
+    </header>
+
+    <section class="home"id="home">
+        <div class="home-content">
+            <h1>Hi, It's <span>Sarai</span></h1>
+            <h3 class="text-animation">I'm a <span></span></h3>
+            <p>I'm a web developer with a passion for creating 
+            beautiful and functional websites. I have experience in HTML, CSS, 
+            JavaScript. I'm always learning new technologies and 
+            techniques to improve my skills.</p>
+
+            <div class="social-icons">
+                <a href="#" ><i class='bx bxl-linkedin-square'></i></a>
+                <a href="#" ><i class='bx bxl-github' ></i></a>
+                <a href="#" ><i class='bx bxl-instagram' ></i></a>
+                <a href="#" ><i class='bx bxl-facebook' ></i></a>
+            </div>
+
+            <div class="btn-group">
+                <a href="#" class="btn">Hire</a>
+                <a href="#" class="btn">Contact</a>
+            </div>
+
+            <div class="home-img">
+                <img src="image/img.jpg" alt="">
+
+            </div>
+        </div>
 
 
-   <ul>
-       <li><a href="#home">Home</a></li>
-       <li><a href="#about">About</a></li>
-       <li><a href="#contact">Contact</a></li>
-   </ul>
-
-   <img id="random-image" src="image/logo.png" alt="cat picture">
-   <button id="update-image-button">Get Random Image</button>
-
-
-
-   
-
-
-   <h2>Home</h2>
-   <p>This is the home section where you can introduce the main content of your website.</p>
-
-
-   <p>Some other headers you can include (for a personal portfolio):</p>
-   <ol>
-       <li>Projects</a></li>
-       <li>Experience</a></li>
-       <li>Resume</a></li>
-   </ol>
-
-
-   <h2>About</h2>
-   <p>This section provides information about you or your website.</p>
-
-
-   <h2>Contact</h2>
-   <p>Phone Number: 908-4398-4398</p>  
-   <a href="https://www.linkedin.com/in/sarai-ojeda-bb85b0307/">LinkedIn</li>
+    </section>
 
 
     <script src="script.js"></script>

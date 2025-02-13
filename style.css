@@ -1,96 +1,183 @@
 /* Styling the body with a background color and padding */
-body {
-    background-color: #f9dcee; /* Light background color */
-    padding: 20px; /* Space between the content and the edge of the page */
-    font-family: 'Courier New', Courier, monospace;
- }
+*{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      border: none;
+      outline: none;
+      scroll-behavior: smooth;
+      font-family: "Poppins", sans-serif;
+}
+:root{
+   --bg-color:#080808;
+   --second-bg-color:#131313;
+   --text-color:white;
+   --main-color:#ff8ac4;
+}
+html{
+   font-size: 60%;
+   overflow-x: hidden;
+}
+body{
+   background-color: var(--bg-color);
+   color: var(--text-color);
+}
+.header{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   padding:4rem 12% 4rem;
+   backdrop-filter: blur(10px);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   z-index: 5;
 
- /* Styling the header text */
- h1 {
-    text-align: center; /* Center-aligning the header text */
-    font-size: 35px; /* Font size */
-    margin-bottom: 20px; /* Space below the header */
-    font-weight: 1000; /* Sets the weight equivalent to bold */
- }
- 
- 
- /* Styling the links in the navigation list */
- ul {
-    text-align: center; /* Center-aligns the list */
-    padding: 10px; /* Removes padding from the unordered list */
-    border: 2px solid #000; /* Black border around the list */
-    background-color: #e4cdff; /* Light yellow background for the list */
-    font-style: italic; /* Italicize the text */
- }
- .ul { 
-   width: 300px; /* Content width */ 
-   padding: 20px; /* Space between content and border */ 
-   border: 5px solid darkblue; /* Border thickness and style */ margin: 30px; /* Space outside the border*/ 
-   background-color: lightblue; 
-   font-size: 16px; }
+}
+.logo{
+   font-size: 3rem;
+   font-weight: 800;
+   color: var(--text-color);
+   cursor: pointer;
+   transition: 0.3s ease;
+}
+.logo:hover{
+   transform: scale(1.1);
+}
+.logo span{
+   text-shadow: 0 0 25px var(--main-color);
+}
+.navbar a{
+   font-size: 1.8rem;
+   color: var(--text-color);
+   margin-left: 4rem;
+   font-weight: 500;
+   transition: 0.3s ease;
+   border-bottom: 3px solid transparent;
+}
+.navbar a:hover,
+.navbar a.active{
+   color: var(--main-color);
+   border-bottom: 3px solid var(--main-color);
+}
+#menu-icon{
+   font-size: 3.6rem;
+   color: var(--text-color);
+   display: none;
+}
+section{
+   min-height: 100vh;
+   padding:10rem 12% 10rem; ;
+}
+.home{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 15rem;
+}
+.home-content{
+   display: flex;
+   flex-direction: column;
+   align-items: baseline;
+   text-align:left;
+   justify-content: center;
+   margin-top: 10rem;
+}
+span{
+   color: var(--main-color);
+}
+.logo span{
+   color: var(--main-color);
+}
+.home-content h3{
+   font-size:3.5rem;
+   margin-top: 1rem;
+   margin-bottom: 2rem;
+} 
+.home-content h1{
+   font-size: 7rem;
+   font-weight: 700;
+   margin-top:1.5rem;
+   line-height: 1;
+}
+.home-img img{
+   position: relative;
+   top:3rem;
+   width: 32vw;
+   border-radius: 50%;
+   box-shadow: 0 0 25px var(--main-color);
+   cursor: pointer;
+   transition: 0.4s ease-in-out;
+
+}
+.home-img img:hover{
+   box-shadow:0 0 25px var(--main-color), 
+               0 0 50px var(--main-color),
+               0 0 100px var(--main-color);
+  
+}
+.home-content p{
+   font-size: 1.5rem;
+   font-weight: 500;
+   line-height: 1.8;
+   max-width: 1000px;
+}
+.social-icons a{
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   width: 4.5rem;
+   height: 4.5rem;
+   background:transparent;
+   border: 2px solid var(--main-color);
+   font-size: 2.5rem;
+   border-radius: 50%;
+   color: var(--main-color);
+   margin:3rem 1.5rem 3rem 0 ;
+   transition: 0.3s ease-in-out;
+}
+.social-icons a:hover{
+   color: var(--text-color);
+   transform: scale(1.3)translateY(-5px);
+   box-shadow: 0 0 25px var(--main-color);
+   background-color: var(--main-color);
+}
+.btn{
+   display: inline-block;
+   padding: 1rem 2.8rem;
+   box-shadow: 0 0 25px var(--main-color);
+   border-radius: 4rem;
+   font-size: 1.6rem;
+   font-weight: 500;
+   color: black;
+   background: var(--main-color);
+   border-radius: 5px;
+   border: 2px solid transparent;
+   letter-spacing: 0.1rem;
+   font-weight: 600;
+   transition: 0.3s ease-in-out;
+   cursor: pointer;
    
- 
- 
- ul li {
-    display: inline; /* Makes the list horizontal */
-    margin: 0 10px; /* Adds space between the links */
- }
- 
- 
- ul li a {
-    color: #8b0045; /* Link color */
- }
- 
- 
- /* Styling the image */
- img {
-    display: block;
-    width: 300px; /* Sets width for the image */
-    margin: 20px auto; /* Center the image and add margin */
- }
-
- /* Styling the button */
-button {
-  background-color: #4b0082; /* Purple background */
-  color: #fff; /* White text */
-  border: none; /* Remove border */
-  padding: 10px 20px; /* Add padding */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 16px; /* Font size */
-  cursor: pointer; /* Pointer cursor on hover */
-  display: block; /* Makes button a block element */
-  margin: 20px auto; /* Center the button horizontally and add space above */
-  text-align: center; /* Center text inside the button */
 }
-
-
-button:hover {
-  background-color: #6a0dad; /* Lighter purple on hover */
+.btn:hover{
+ transform: scale(1.05);
+ box-shadow: 0 0 50px var(--main-color);
 }
-
- 
- /* Styling the subheadings */
- h2 {
-    color: #4b0082; /* Subheading text color */
-    font-size: 25px; /* Font size */
-    margin-top: 30px; /* Adds space above subheadings */
- }
- 
- 
- /* Styling the paragraphs */
- p {
-    font-size: 18px; /* Font size for readability */
-    color: #333; /* Dark text color */
-    margin-bottom: 20px; /* Space below the paragraphs */
- }
- 
- 
- /* Styling list items */
- ol li {
-    color: #c361d0; /* List item text color */
-    font-size: 15px; /* Font size */
-    padding: 5px 0; /* Space within each list item */
- }
- 
- 
- 
+.btn-group{
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+}
+.btn-group a:nth-of-type(2){
+   box-shadow: 0 0 25px var(--main-color);
+   background-color: black;
+   border: 2px solid var(--main-color);
+   color: var(--main-color);
+}
+.btn-group a:nth-of-type(2):hover{
+   box-shadow: 0 0 25px var(--main-color);
+   background-color: var(--main-color);
+   color: black;
+}

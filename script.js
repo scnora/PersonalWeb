@@ -1,25 +1,54 @@
-const imageElement = document.querySelector('#random-image');
-const updateButton = document.querySelector('#update-image-button');
-
-
-// Function to fetch a random cat image from the API
-async function fetchRandomCatImage() {
-   try {
-       // Fetch data from the API
-       const response = await fetch('https://api.thecatapi.com/v1/images/search');
-       // Parse the JSON data
-       const data = await response.json();
-       // Extract the image URL
-       const imageUrl = data[0].url;
-       // Update the "src" attribute of the image element
-       imageElement.src = imageUrl;
-   } catch (error) {
-       console.error('Error fetching the image:', error);
-   }
+{
+    "configurations": [
+        {
+            "type": "pwa-msedge",
+            "name": "Launch Microsoft Edge",
+            "request": "launch",
+            "runtimeArgs": [
+                "--remote-debugging-port=9222"
+            ],
+            "url": "c:\\Users\\DJCoo\\.vscode\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.5\\out\\startpage\\index.html", // Provide your project's url to finish configuring
+            "presentation": {
+                "hidden": true
+            }
+        },
+        {
+            "type": "pwa-msedge",
+            "name": "Launch Microsoft Edge in headless mode",
+            "request": "launch",
+            "runtimeArgs": [
+                "--headless",
+                "--remote-debugging-port=9222"
+            ],
+            "url": "c:\\Users\\DJCoo\\.vscode\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.5\\out\\startpage\\index.html", // Provide your project's url to finish configuring
+            "presentation": {
+                "hidden": true
+            }
+        },
+        {
+            "type": "vscode-edge-devtools.debug",
+            "name": "Open Edge DevTools",
+            "request": "attach",
+            "url": "c:\\Users\\DJCoo\\.vscode\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.5\\out\\startpage\\index.html", // Provide your project's url to finish configuring
+            "presentation": {
+                "hidden": true
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Launch Edge Headless and attach DevTools",
+            "configurations": [
+                "Launch Microsoft Edge in headless mode",
+                "Open Edge DevTools"
+            ]
+        },
+        {
+            "name": "Launch Edge and attach DevTools",
+            "configurations": [
+                "Launch Microsoft Edge",
+                "Open Edge DevTools"
+            ]
+        }
+    ]
 }
-
-
-// Add an event listener to the button to update the image on click
-updateButton.addEventListener('click', fetchRandomCatImage);
-
-
