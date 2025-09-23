@@ -10,7 +10,7 @@
       font-family: "Poppins", sans-serif;
 }
 :root{
-   --bg-color:#080808;
+   --bg-color:#000000;
    --second-bg-color:#131313;
    --text-color:white;
    --main-color:#ff8ac4;
@@ -83,7 +83,7 @@ section{
    align-items: baseline;
    text-align:left;
    justify-content: center;
-   margin-top: 10rem;
+   margin-top: 3rem;
 }
 span{
    color: var(--main-color);
@@ -91,6 +91,7 @@ span{
 .logo span{
    color: var(--main-color);
 }
+
 .home-content h3{
    font-size:3.5rem;
    margin-top: 1rem;
@@ -99,8 +100,12 @@ span{
 .home-content h1{
    font-size: 7rem;
    font-weight: 700;
-   margin-top:1.5rem;
+   margin-top: 1.5rem;
    line-height: 1;
+}
+.home-img{
+   border-radius: 50%;
+   
 }
 .home-img img{
    position: relative;
@@ -118,6 +123,7 @@ span{
                0 0 100px var(--main-color);
   
 }
+
 .home-content p{
    font-size: 1.5rem;
    font-weight: 500;
@@ -150,10 +156,8 @@ span{
    box-shadow: 0 0 25px var(--main-color);
    border-radius: 4rem;
    font-size: 1.6rem;
-   font-weight: 500;
    color: black;
    background: var(--main-color);
-   border-radius: 5px;
    border: 2px solid transparent;
    letter-spacing: 0.1rem;
    font-weight: 600;
@@ -171,7 +175,7 @@ span{
    gap: 1.5rem;
 }
 .btn-group a:nth-of-type(2){
-   box-shadow: 0 0 25px var(--main-color);
+   box-shadow: 0 0 25px transparent;
    background-color: black;
    border: 2px solid var(--main-color);
    color: var(--main-color);
@@ -180,4 +184,104 @@ span{
    box-shadow: 0 0 25px var(--main-color);
    background-color: var(--main-color);
    color: black;
+}
+.text-animation{
+   font-size: 34px;
+   font-weight: 600;
+   min-width:280px;
+}
+.text-animation span{
+   position: relative;
+}
+.text-animation span::before{
+   content: "CS Student";
+   color: var(--main-color);
+   animation: words 20s infinite;
+}
+.text-animation span::after{
+   content:"";
+   background-color: var(--bg-color);
+   position: absolute;
+   width: calc(100% +8px);
+   height: 100%;
+   border-left: 3px solid var(--bg-color);
+   right: -8px;
+   animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+@keyframes cursor{
+   to{
+      border-left: 2px solid var(--main-color);
+   }
+   
+}
+@keyframes words{
+   0%,
+   20%
+   {
+      content: "Web Developer";
+   }
+   21%, 
+   40%
+   {
+      content: "Frontend Designer";
+   }
+   41%,
+   60%
+   {
+      content: "UI/UX Designer";
+   }
+   61%, 
+   80%
+   {
+      content: "CS Student";
+   }
+   81%, 
+   100%
+   {
+      content: "Graphic Designer";
+   }
+   
+}
+@keyframes typing{
+   10%,
+   15%, 
+   30%,
+   35%, 
+   50%, 
+   55%, 
+   70%, 
+   75%,
+   90%, 
+   95%
+   {
+      width:0;
+   
+   }
+   5%, 
+   20%, 
+   25%,
+   40%,
+   45%,
+   60%,
+   65%,
+   80%,
+   85%{
+      width: calc(100% + 8px);
+   }
+}
+.contact{
+   background-color: var(--bg-color);
+}
+
+.heading{
+   text-align: center;
+   font-size: 8rem;
+   margin: 5rem 0;
+}
+.experience{
+   padding: 100px 15px;
+   background: var(--second-bg-color);
+}
+.experience h2{
+   margin-bottom:5rem ;
 }
