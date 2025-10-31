@@ -29,7 +29,6 @@ body{
    left: 0;
    width: 100%;
    padding:4rem 12% 4rem;
-   backdrop-filter: blur(10px);
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -269,6 +268,67 @@ span{
       width: calc(100% + 8px);
    }
 }
+
+.heading{
+   text-align: center;
+   font-size: 8rem;
+   margin: 5rem 0;
+}
+
+/* About Section */
+
+.about h2{
+   margin-bottom:3rem ;
+   color: white;
+}
+.about-grid{
+   display:grid;
+   grid-template-columns:1fr 280px;
+   gap:1.5rem;
+}
+.about-list{
+   list-style:none;
+   padding:0;
+   margin:0;
+}
+.about-list li{
+   padding:.35rem 0;
+}
+
+/* Projects Section */
+.projects h2{
+   margin-bottom:3rem ;
+   color: white;
+}
+.section-title{
+   text-align: center;
+   font-size: 4rem;
+   margin-bottom: 1rem;
+
+}
+.projects-grid{
+   display:grid;
+   grid-template-columns:repeat(3,1fr);
+   gap:1rem;margin-top:1rem;
+}
+.project-card{
+   background:var(--card);
+   border-radius:10px;
+   overflow:hidden;
+   cursor:pointer;
+   transition:transform .22s cubic-bezier(.2,.9,.2,1),box-shadow .22s;
+}
+.project-card img{
+   width:100%;
+   height:160px;
+   object-fit:cover;
+   display:block;
+}
+.project-card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+.card-body{padding:.9rem}
+
+
+/* Contact Section */
 .contact{
    background-color: var(--bg-color);
 }
@@ -345,16 +405,18 @@ span{
 
 }
 
-.heading{
-   text-align: center;
-   font-size: 8rem;
-   margin: 5rem 0;
+
+/* responsive */
+@media (max-width:980px){
+  .home-inner{grid-template-columns:1fr; text-align:center}
+  .home-image{order:-1;margin-bottom:1rem}
+  .about-grid{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
 }
-.experience{
-   padding: 100px 15px;
-   background: var(--second-bg-color);
+@media (max-width:640px){
+  #nav-toggle{display:block}
+  .nav{position:absolute;left:0;right:0;top:64px;background:rgba(2,6,23,.9);display:none;padding:1rem;border-top:1px solid rgba(255,255,255,0.03)}
+  .nav ul{flex-direction:column}
+  .projects-grid{grid-template-columns:1fr}
+  .header-inner{align-items:center}
 }
-.experience h2{
-   margin-bottom:5rem ;
-}
-.experience

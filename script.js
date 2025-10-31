@@ -1,5 +1,5 @@
 {
-    "configurations": [
+    "configurations" [
         {
             "type": "pwa-msedge",
             "name": "Launch Microsoft Edge",
@@ -35,7 +35,7 @@
             }
         }
     ],
-    "compounds": [
+    "compounds" [
         {
             "name": "Launch Edge Headless and attach DevTools",
             "configurations": [
