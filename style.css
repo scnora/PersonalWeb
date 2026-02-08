@@ -411,41 +411,86 @@ span{
 }
 
 /* Contact Section */
-.contact{
-   background-color: var(--bg-color);
-}
+
 .contact h2{
    margin-bottom:3rem ;
    color: white;
 }
 .contact form{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 3rem;
-   margin: 5rem auto;
-   text-align: center;
+   max-width:900px;
+   margin:5rem auto;
+   display:grid;
+   grid-template-columns:1fr 1fr;
+   gap:2rem;
 }
-.contact form .input-box{
-   display: flex;
-   justify-content: center;
-   flex-wrap: wrap;
+
+
+/* left column */
+.input-group{
+   display:flex;
+   flex-direction:column;
+   gap:2rem;
 }
-.contact form .input-box input,
-.contact form textarea{
-   width: 100%;
-   padding: 2.5rem;
-   font-size: 1.8rem;
-   color: var(--text-color);
-   background: var(--second-bg-color);
-   border-radius: 2rem;
-   border: 2px solid var(--main-color);
-   margin:1.5rem 0;
-   resize: none;
+
+
+/* inputs + textarea */
+.contact input,
+.contact textarea{
+   width:100%;
+   padding:2rem;
+   font-size:1.6rem;
+   color:var(--text-color);
+   background:var(--second-bg-color);
+   border-radius:1.5rem;
+   border:1px solid rgba(255,255,255,0.08);
+   transition:.25s;
 }
-.contact form .btn{
-   margin-top: 2rem;
+
+
+
+
+/* focus effect */
+.contact input:focus,
+.contact textarea:focus{
+   border:1px solid var(--main-color);
 }
+
+.input-group-2{
+   display:flex;
+   flex-direction:column;
+}
+
+.input-group-2 textarea{
+   flex:1;
+   resize:none;
+}
+
+/* CENTER THE BUTTON */
+.input-group-2 .btn{
+   margin-top:2rem;
+   width:200px;
+   align-self:center;   /* ⭐ THIS centers it */
+}
+
+/* mobile */
+@media (max-width:800px){
+   .contact form{
+      grid-template-columns:1fr;
+   }
+   .input-group-2 .btn{
+      width:100%;
+   }
+}
+/* mobile */
+@media (max-width:800px){
+   .contact form{
+      grid-template-columns:1fr;
+   }
+   .input-group-2 .btn{
+      width:100%;
+   }
+}
+
 .footer{
    position: relative;
    bottom:0;
