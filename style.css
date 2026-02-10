@@ -11,7 +11,7 @@
 }
 :root{
    --bg-color:#000000;
-   --second-bg-color:#131313;
+   --second-bg-color:#141414;
    --text-color:white;
    --main-color:#ff8ac4;
    --card:#1a1a1a;
@@ -29,11 +29,12 @@ body{
    top: 0;
    left: 0;
    width: 100%;
-   padding:4rem 12% 4rem;
+   padding:4rem 12% 2rem;
    display: flex;
    align-items: center;
    justify-content: space-between;
    z-index: 5;
+   background: var(--second-bg-color);
 
 }
 .container{
@@ -54,6 +55,7 @@ body{
 .logo span{
    text-shadow: 0 0 25px var(--main-color);
 }
+
 .navbar a{
    font-size: 1.8rem;
    color: var(--text-color);
@@ -544,7 +546,14 @@ span{
 }
 @media (max-width:640px){
   #nav-toggle{display:block}
-  .nav{position:absolute;left:0;right:0;top:64px;background:rgba(2,6,23,.9);display:none;padding:1rem;border-top:1px solid rgba(255,255,255,0.03)}
+  .nav{position:absolute;
+      left:0;right:0;
+      top:64px;
+      background:rgba(2,6,23,.9);
+      display:none;
+      padding:1rem;
+      border-top:1px solid rgba(255,255,255,0.03)
+   }
   .nav ul{flex-direction:column}
   .projects-grid{grid-template-columns:1fr}
   .header-inner{align-items:center}
