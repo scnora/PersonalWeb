@@ -1,177 +1,451 @@
-<!DOCTYPE html>
+<!doctype html>
+<!--
+  Y2K PORTFOLIO - index.html
+  The STRUCTURE and TEXT of the page. How to read this file:
+    - style.css  controls how it looks.
+    - script.js  controls what it does (and holds the SITE settings you'll edit most).
+  Each window below starts with a comment like "WINDOW: about". Look for "EDIT ME" notes.
+-->
 <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Sarai Ojeda Portfolio</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Sarai Ojeda – Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&display=swap"
+    />
+    <!-- All the styling lives in style.css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ICON SPRITE: the pixel icons (floppy, CD, folder...) are defined once here and reused with <use href="#i-name"/>. -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-floppy" viewBox="0 0 32 32" shape-rendering="crispEdges">
+          <path d="M3 3h22l4 4v22H3z" fill="#3EA8FF" stroke="#0B0B25" stroke-width="2" />
+          <rect
+            x="9"
+            y="3"
+            width="13"
+            height="9"
+            fill="#DDE3F2"
+            stroke="#0B0B25"
+            stroke-width="2"
+          />
+          <rect x="17" y="5" width="3" height="5" fill="#0B0B25" />
+          <rect x="7" y="16" width="18" height="13" fill="#fff" stroke="#0B0B25" stroke-width="2" />
+          <path d="M10 21h12M10 25h8" stroke="#FF3EA5" stroke-width="2" />
+        </symbol>
+        <symbol id="i-cd" viewBox="0 0 32 32">
+          <circle cx="16" cy="16" r="13" fill="#E8ECFF" stroke="#0B0B25" stroke-width="2" />
+          <path d="M6 12a11 11 0 0 1 12-7" fill="none" stroke="#FF3EA5" stroke-width="3" />
+          <path d="M26 20a11 11 0 0 1-12 7" fill="none" stroke="#B6FF3B" stroke-width="3" />
+          <circle cx="16" cy="16" r="4" fill="#7FD0FF" stroke="#0B0B25" stroke-width="2" />
+        </symbol>
+        <symbol id="i-folder" viewBox="0 0 32 32" shape-rendering="crispEdges">
+          <path d="M2 7h11l3 3h14v17H2z" fill="#FFD84D" stroke="#0B0B25" stroke-width="2" />
+          <path d="M2 12h28" stroke="#0B0B25" stroke-width="2" />
+        </symbol>
+        <symbol id="i-crt" viewBox="0 0 32 32" shape-rendering="crispEdges">
+          <rect
+            x="3"
+            y="3"
+            width="26"
+            height="20"
+            rx="3"
+            fill="#E8E4F4"
+            stroke="#0B0B25"
+            stroke-width="2"
+          />
+          <rect
+            x="7"
+            y="7"
+            width="18"
+            height="12"
+            fill="#3EA8FF"
+            stroke="#0B0B25"
+            stroke-width="2"
+          />
+          <path d="M11 28h10M16 23v5" stroke="#0B0B25" stroke-width="3" />
+        </symbol>
+        <symbol id="i-modem" viewBox="0 0 32 32" shape-rendering="crispEdges">
+          <rect
+            x="2"
+            y="12"
+            width="28"
+            height="14"
+            fill="#C9B8FF"
+            stroke="#0B0B25"
+            stroke-width="2"
+          />
+          <rect x="6" y="17" width="3" height="3" fill="#B6FF3B" />
+          <rect x="12" y="17" width="3" height="3" fill="#FF3EA5" />
+          <rect x="18" y="17" width="3" height="3" fill="#FFD84D" />
+          <path d="M8 12V6M24 12V6" stroke="#0B0B25" stroke-width="3" />
+        </symbol>
+        <symbol id="i-doc" viewBox="0 0 32 32" shape-rendering="crispEdges">
+          <path d="M6 3h14l6 6v20H6z" fill="#fff" stroke="#0B0B25" stroke-width="2" />
+          <path d="M10 14h12M10 19h12M10 24h8" stroke="#4B2FFF" stroke-width="2" />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 32 32" shape-rendering="crispEdges">
+          <rect x="3" y="7" width="26" height="18" fill="#fff" stroke="#0B0B25" stroke-width="2" />
+          <path d="M3 8l13 10L29 8" fill="none" stroke="#FF3EA5" stroke-width="2" />
+        </symbol>
+        <symbol id="i-bug" viewBox="0 0 32 32" shape-rendering="crispEdges">
+          <path
+            d="M5 9l5 4M27 9l-5 4M3 18h6M29 18h-6M6 28l5-5M26 28l-5-5"
+            stroke="#0B0B25"
+            stroke-width="2.5"
+          />
+          <ellipse cx="16" cy="19" rx="8" ry="9" fill="#B6FF3B" stroke="#0B0B25" stroke-width="2" />
+          <circle cx="16" cy="9" r="5" fill="#FF3EA5" stroke="#0B0B25" stroke-width="2" />
+          <path d="M16 12v16" stroke="#0B0B25" stroke-width="2" />
+        </symbol>
+      </defs>
+    </svg>
 
-    </head>
-    <body>
-        <header class="header">
-            <a href="#home" class="logo">Sarai <span> Ojeda</span></a>
-            <i class='bx bx-menu' id="menu-icon"></i>
-            <nav class="navbar">
-                <a href="#home" class="active">Home</a>
-                <a href="#aboutme">About Me</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
+    <!-- BOOT SCREEN: the fake BIOS shown when the page opens (script.js section 3). -->
+    <div class="boot" id="boot" role="status">
+      <div>
+        YN-BIOS v2.000<br />Memory test: 65536K ok<br />Detecting creativity... found<br />Loading
+        portfolio.exe
+      </div>
+      <div class="pb"><i id="pbi"></i></div>
+      <p>Press any key to skip</p>
+    </div>
+    <!-- SHUT DOWN SCREEN: shown by Start > Shut down. -->
+    <div class="off" id="off">
+      <div>
+        It’s now safe to turn off your computer.<br /><button class="bv" id="restart">
+          Restart
+        </button>
+      </div>
+    </div>
 
-    <!--* Home Section */-->
+    <!-- TASKBAR: the bar at the top. data-t links each button to its window. -->
+    <nav class="task" aria-label="Taskbar">
+      <button class="btn bv start" id="start" aria-expanded="false" aria-controls="menu">
+        Start
+      </button>
+      <div class="nav">
+        <button class="btn bv" data-go="home" data-t="home">Home</button
+        ><button class="btn bv" data-go="about" data-t="about">About me</button
+        ><button class="btn bv" data-go="projects" data-t="projects">Projects</button
+        ><button class="btn bv" data-go="resume" data-t="resume">Resume</button
+        ><button class="btn bv" data-go="contact" data-t="contact">Contact me</button>
+      </div>
+      <button class="btn bv hot" id="gameBtn">Game mode</button>
+      <div class="tray inset d btn" style="font-weight: 400"><span id="clock"></span></div>
+    </nav>
 
-        <section class="home" id="home">
-            <div class="home-content">
-                <h1>Hi, It's <span>Sarai</span></h1>
-                <h3 class="text-animation">I'm a <span></span></h3>
-                <p>I am a Undergraduate student at Rutgers University with a passion for creating 
-                    funcitional and visually appealing websites. I have a passion for 
-                    combining creativity with technical skills to create engaging and user-friendly 
-                    web experiences and projects. I'm always learning new technologies and skills to 
-                    improve my capabilities and grow as a programmer.</p>
+    <!-- TICKER: scrolling banner. EDIT ME: change the words below. -->
+    <div class="ticker" aria-hidden="true">
+      <span>★ welcome to sarai’s homepage ★ best viewed at 1024 x 768 ★ computer science + psychology at rutgers ★ under construction forever ★</span>
+    </div>
 
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/sarai-ojeda-cs/" rel="noopener noreferrer"><i class='bx bxl-linkedin-square'></i></a>
-                    <a href="https://github.com/scnora" rel="noopener noreferrer"><i class='bx bxl-github' ></i></a>
-                    <a href="https://www.instagram.com/505_sarai/" rel="noopener noreferrer"><i class='bx bxl-instagram' ></i></a>
-                    <a href="https://www.facebook.com/sarai.ojeda.35" rel="noopener noreferrer"><i class='bx bxl-facebook' ></i></a>
-                </div>
-
-                <div class="btn-group">
-                    <a href="/image/OjedaSarai.pdf" target="_blank" class="btn">Resume</a>
-                    <a href="#contact" class="btn">Contact</a>
-                </div>
-            </div>
-            
-                <div class="home-img">
-                    <img src="image/me.png" alt="">
-
-                </div>
-
-
-
-        </section>
-        <!--* About Me  Section */ -->
-        <section class="aboutme" id="aboutme">
-            
-        <h2 class="heading">About <span>Me</span></h2>
-            <div class="about-grid">
-                <div class="reveal-up">
-                    
-                    <p>I am currently a senior studying Computer Science with a minor in Psychology at Rutgers University.
-                    I enjoy building projects that solve real problems, learning new tech, and collaborating on teams. I am currently a Frontend Sofware Engineer Education Director 
-                    and doing a UI/UX fellowship for Rutgers Blueprint. I am also a Webmaster for the Rutgers Marching Band. I am passionate about creating user-friendly and visually appealing websites 
-                    that provide a seamless experience for users. I am always eager to learn new technologies and stay up-to-date with the latest trends in web development.
-                    </p>
-
-
-                </div>
-
-                <div class="reveal-up delay-1">
-                    <ul class="about-list">
-                    <li><strong>Location:</strong> New Brunswick, NJ</li>
-                    <li><strong>Email:</strong> saraiojeda005@gmail.com</li>
-                    <li><strong>Education:</strong> Bachelors of Science in Computer Science</li>
-                    <li><strong>Skills:</strong> Frontend Development, UI/UX Design, AWS, Docker, GitHub, Collaboration</li>
-                    <li><strong>Languages:</strong> HTML, CSS, JavaScript, Python, Java, React, TypeScript, Node.js</li>
-
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-
-        <!--* Projects Section */-->
-        <section class="projects" id="projects">
-        <h2 class="heading">Projects</h2>
-        <div class="container">
-
-            <div class="projects-grid">
-            <article class="project-card">
-                <img src="image/rumbl_thumbnail.png" alt="Project 1">
-                <div class="card-body">
-                    <h3>RUMBL</h3>
-                    <p>Frontend web application similar to Tinder but for Recipes.</p>
-                    <div class="project-buttons">
-                    <a href="#" class="btn">Live Demo</a>
-                    <a href="https://github.com/scnora/RUMBL" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <img src="image/Psychora.jpg" alt="Project 2">
-                <div class="card-body">
-                    <h3>Psychora</h3>
-                    <p>UI for a Mental Health App.</p>
-                    <div class="project-buttons">
-                    <a href="#" class="btn">Live Demo</a>
-                    <a href="https://www.figma.com/design/BeZ1zN7yrnEJZU3WtIyo4F/Psychora?node-id=1-98&t=LzVNxz4QsFxlHpzA-1" target="_blank" rel="noopener noreferrer" class="btn">Figma</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <img src="image/namer_thumbnail.png" alt="Project 3">
-                <div class="card-body">
-                    <h3>Namer App</h3>
-                    <p>A Flutter app that generates random names for users.</p>
-                    <div class="project-buttons">
-                    <a href="#" class="btn">Live Demo</a>
-                    <a href="https://github.com/scnora/Namer-App" rel="noopener noreferrer" class="btn">GitHub</a>
-                    </div>
-                </div>
-            </article>
-            
+    <!-- DESKTOP: holds all the windows, laid out on a 12-column grid. -->
+    <main class="desk">
+      <!-- ===== WINDOW: home - intro text, buttons, visitor counter, and the CRT monitor. EDIT ME: your name, city, and one-liner. ===== -->
+    <section class="win w12" id="home" aria-labelledby="t-home">
+        <div class="tb">
+          <svg><use href="#i-crt" /></svg><span class="t" id="t-home">welcome.exe</span
+          ><span class="wb"
+            ><button data-act="min" aria-label="Minimize welcome window">_</button
+            ><button data-act="close" aria-label="Close welcome window">x</button></span
+          >
         </div>
-        </section>
-
-
-        <!--* Contact Me Section */-->
-        <section class="contact" id="contact">
-            
-            <h2 class="heading">Contact <span>Me</span></h2>
-            
-            <form action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="41e72d94-8b1b-4d1b-b4ca-54b1c8d05df6">
-
-                <div class="contact-grid">
-                    <div class="input-group">
-                        <input type="text" placeholder="Full Name" required>
-                        <input type="email" placeholder="Email" required>
-                        <input type="text" placeholder="Subject">
-                    </div>
-
-                    <div class="input-group-2">
-                        <textarea name="message" placeholder="Your Message" required></textarea>
-                    </div>
-                </div>
-                
-                <div class="form-button-wrapper">
-                    <input type="submit" value="Send Message" class="btn">
-                </div>
-            </form>
-        </section>
-
-        <footer class="footer">
-
-            <div class="social">
-                <a href="https://www.linkedin.com/in/sarai-ojeda-cs/" target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin-square'></i></a>
-                <a href="https://github.com/scnora" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github' ></i></a>
-                <a href="https://www.instagram.com/505_sarai/" target="_blank" rel="noopener noreferrer"><i class='bx bxl-instagram' ></i></a>
-                <a href="https://www.facebook.com/sarai.ojeda.35" target="_blank" rel="noopener noreferrer"><i class='bx bxl-facebook' ></i></a>
-
-            </div>
-
-
-            <p class="copyright">
-                Sarai Ojeda &copy; 2026. All rights reserved.
+        <div class="bd home">
+          <div>
+            <h1>Hi, it’s Sarai!</h1>
+            <p>
+              Undergraduate student at Rutgers University with a passion for fun and creative development! I’m always learning new technologies to grow as a
+              programmer.
             </p>
-        </footer>
+            <div class="row">
+              <a class="btn bv hot" href="#projects" style="text-decoration: none; color: #fff"
+                >Open projects</a
+              ><button class="btn bv" data-go="contact">Say hello</button
+              ><button class="btn bv" id="gameBtn2">Play game mode</button>
+            </div>
+            
+          </div>
+          <div
+            class="rack inset"
+            id="rack"
+            aria-label="Retro monitor. Click the screen."
+          >
+            <div class="crt">
+              <div class="scr"><canvas id="saver" width="260" height="190"></canvas></div>
+              <i class="led"></i>
+            </div>
+            <p class="hint">Click the screen.</p>
+          </div>
+        </div>
+      </section>
 
-        <script src="script.js"></script>
-    </body>
+      <!-- ===== WINDOW: about - photo, bio, skill bars. EDIT ME: bio text here; skill names are in script.js (SITE.skills). ===== -->
+    <section class="win w5" id="about" aria-labelledby="t-about">
+        <div class="tb">
+          <svg><use href="#i-doc" /></svg><span class="t" id="t-about">about_me.txt</span
+          ><span class="wb"
+            ><button data-act="min" aria-label="Minimize about window">_</button
+            ><button data-act="close" aria-label="Close about window">x</button></span
+          >
+        </div>
+        <div class="bd">
+          <div class="about">
+            <!-- Photo: the text "sarai.jpg" shows only if the image can't load. EDIT ME: save me.png in an "image" folder and use src="image/me.png". -->
+            <div class="photo inset">
+              sarai.jpg<img
+                src="https://www.sarai-ojeda.com/image/me.png"
+                alt="Photo of Sarai Ojeda"
+                onerror="this.remove()"
+              />
+            </div>
+            <div>
+              <p>
+                I’m a senior at Rutgers University studying Computer Science with a minor in
+                Psychology. I like building projects that solve real problems, learning new tech,
+                and working on teams.
+              </p>
+           
+            </div>
+          </div>
+          <h2 style="font-size: 15px; margin: 14px 0 6px">Skills</h2>
+          <div id="skills"></div>
+          <h2 style="font-size: 15px; margin: 14px 0 6px">Languages and tools</h2>
+          <!-- EDIT ME: one <span class="tag"> per language or tool. -->
+          <div class="langs">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span
+            ><span class="tag">Python</span><span class="tag">Java</span><span class="tag">React</span
+            ><span class="tag">TypeScript</span><span class="tag">Node.js</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WINDOW: projects - file explorer. The list of projects is in script.js (SITE.projects), not here. ===== -->
+    <section class="win w7" id="projects" aria-labelledby="t-projects">
+        <div class="tb">
+          <svg><use href="#i-folder" /></svg><span class="t" id="t-projects">C:\projects</span
+          ><span class="wb"
+            ><button data-act="min" aria-label="Minimize projects window">_</button
+            ><button data-act="close" aria-label="Close projects window">x</button></span
+          >
+        </div>
+        <div class="bd">
+          <div class="tools" role="group" aria-label="Filter projects">
+            <button class="bv" aria-pressed="true" data-f="all">All</button
+            ><button class="bv" aria-pressed="false" data-f="design">Design</button
+            ><button class="bv" aria-pressed="false" data-f="web">Web</button
+            ><button class="bv" aria-pressed="false" data-f="app">App</button>
+          </div>
+          <div class="files inset" id="files"></div>
+          <div class="prev inset" id="prev" aria-live="polite"></div>
+          <div class="status inset">
+            <span id="count"></span><span>Select a file to preview</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WINDOW: resume - timeline of roles and school. EDIT ME: copy one dt/dd pair per entry. ===== -->
+    <section class="win w7" id="resume" aria-labelledby="t-resume">
+        <div class="tb">
+          <svg><use href="#i-doc" /></svg><span class="t" id="t-resume">resume.doc</span
+          ><span class="wb"
+            ><button data-act="min" aria-label="Minimize resume window">_</button
+            ><button data-act="close" aria-label="Close resume window">x</button></span
+          >
+        </div>
+        <div class="bd">
+          <!-- EDIT ME: replace each "Mon 20XX" with a real date, like "Aug 2024". -->
+          <dl class="tl">
+            <dt>Rutgers Creative X<span class="dates">Sept. 2026 – Present</span></dt>
+            <dd>
+              <b>Website Intern</b><br />
+              Designed and developed with Framer and Figma to maintain website for the organization.
+            </dd>
+            <dt>Fiserv<span class="dates">June 2025 – Aug. 2026</span></dt>
+            <dd>
+              <b>Software Engineer Intern</b><br />
+            </dd>
+            <dt>Rutgers Blueprint<span class="dates">Sept. 2025 – May 2026</span></dt>
+            <dd>
+              <b>Frontend Software Engineer Educational Director</b><br />
+              Instructed and mentored 20+ students in Frontend development, including HTML, CSS, and JavaScript. Developed and maintained the organization's website using React and Node.js.
+            </dd>
+            <dt>Rutgers Marching Band<span class="dates">Sept. 2023 – Present</span></dt>
+            <dd><b>Drill Advisor & Prev. Webmaster</b></dd>
+
+            
+          </dl>
+          <div class="row" style="margin-top: 14px">
+            <a class="btn bv plain" href="image/OjedaResume.pdf" target="_blank" rel="noopener">Open full resume (PDF)</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WINDOW: now - the buddy-list profile and game trophies. EDIT ME: what you are building, listening to, reading. ===== -->
+    <section class="win w5" id="now" aria-labelledby="t-now">
+        <div class="tb">
+          <svg><use href="#i-modem" /></svg><span class="t" id="t-now">right_now.exe</span
+          ><span class="wb"
+            ><button data-act="min" aria-label="Minimize now window">_</button
+            ><button data-act="close" aria-label="Close now window">x</button></span
+          >
+        </div>
+        <div class="bd">
+          <div class="buddy inset">
+            <p><b>Status:</b> online, probably coding</p>
+            <p><b>Studying:</b> Computer Science + Psychology at Rutgers University</p>
+            <p><b>Based in:</b> New Brunswick, NJ</p>
+            <p><b>Learning:</b> new tech, always</p>
+          </div>
+          <h2 style="font-size: 15px; margin: 14px 0 6px">Trophies</h2>
+          <p style="margin: 0 0 6px; font-size: 20px">
+            Win rounds in game mode to unlock the real me.
+          </p>
+          <ul class="trophies inset" id="trophies"></ul>
+        </div>
+      </section>
+
+      <!-- ===== WINDOW: contact - the mail form. EDIT ME: the address in the "To" box (also set SITE.email in script.js). ===== -->
+    <section class="win w12" id="contact" aria-labelledby="t-contact">
+        <div class="tb">
+          <svg><use href="#i-mail" /></svg><span class="t" id="t-contact">new_message</span
+          ><span class="wb"
+            ><button data-act="min" aria-label="Minimize contact window">_</button
+            ><button data-act="close" aria-label="Close contact window">x</button></span
+          >
+        </div>
+        <div class="bd mail">
+          <div>
+            <h2 style="font-size: 24px">Let’s Chat!</h2>
+            <p>Got a project, a question, or a good idea? Send a message and I’ll get back to you.</p>
+            <div class="row">
+              <button class="btn bv" id="copy">Copy my email</button
+              ><span id="toast" role="status"></span>
+            </div>
+            <!-- Social links: EDIT ME if any of these change. -->
+            <div class="row socials">
+              <a class="btn bv plain" href="https://www.linkedin.com/in/sarai-ojeda-cs/" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="btn bv plain" href="https://github.com/scnora" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div class="away inset">
+              <b>Away message:</b> brb, probably debugging something. Leave a note after the beep.
+            </div>
+          </div>
+          <div>
+            <div class="fld">
+              <label for="to">To:</label>
+              <div class="inset" id="to">saraiojeda005@gmail.com</div>
+            </div>
+            <div class="fld">
+              <label for="n">From:</label
+              ><input class="inset" id="n" autocomplete="name" placeholder="Your name" />
+            </div>
+            <div class="fld">
+              <label for="e">Email:</label
+              ><input
+                class="inset"
+                id="e"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div class="fld">
+              <textarea
+                class="inset"
+                id="m"
+                aria-label="Message"
+                placeholder="Type your message here"
+              ></textarea>
+            </div>
+            <button class="btn bv hot" id="send">Send message</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">Sarai Ojeda © 2026. All rights reserved.</footer>
+
+    <!-- GAME MODE: full-screen overlay. The game itself is in script.js section 11. -->
+    <div
+      class="game"
+      id="game"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-label="Pixel runner game"
+    >
+      <div class="hud">
+        <span>Score <b id="gScore">0</b></span
+        ><span>Coins <b id="gCoins">0</b></span
+        ><span>Best <b id="gBest">0</b></span
+        ><button class="btn bv" id="gx">Exit game mode</button>
+      </div>
+      <div class="arena" id="arena">
+        <canvas
+          id="gameCanvas"
+          width="800"
+          height="300"
+          role="img"
+          aria-label="Pixel runner game. Press space or the up arrow, or tap, to jump."
+        ></canvas>
+        <div class="gpanel inset" id="gp"></div>
+      </div>
+    </div>
+    <!-- START MENU: opened by the Start button. data-go="id" opens the window with that id. -->
+    <ul class="menu" id="menu" hidden>
+      <li>
+        <button data-go="home">
+          <svg><use href="#i-crt" /></svg>Home
+        </button>
+      </li>
+      <li>
+        <button data-go="about">
+          <svg><use href="#i-doc" /></svg>About me
+        </button>
+      </li>
+      <li>
+        <button data-go="projects">
+          <svg><use href="#i-folder" /></svg>Projects
+        </button>
+      </li>
+      <li>
+        <button data-go="resume">
+          <svg><use href="#i-doc" /></svg>Resume
+        </button>
+      </li>
+      <li>
+        <button data-go="now">
+          <svg><use href="#i-modem" /></svg>Right now
+        </button>
+      </li>
+      <li>
+        <button data-go="contact">
+          <svg><use href="#i-mail" /></svg>Contact me
+        </button>
+      </li>
+      <li>
+        <button id="gameMenu">
+          <svg><use href="#i-bug" /></svg>Game mode
+        </button>
+      </li>
+      <li>
+        <button id="mode">
+          <svg><use href="#i-cd" /></svg>Switch light or dark
+        </button>
+      </li>
+      <li>
+        <button id="shut">
+          <svg><use href="#i-floppy" /></svg>Shut down
+        </button>
+      </li>
+    </ul>
+
+    <!-- All the behavior lives in script.js -->
+    <script src="script.js"></script>
+  </body>
 </html>
