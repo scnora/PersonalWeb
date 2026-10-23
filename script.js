@@ -26,13 +26,18 @@ const SITE = {
   screensaverText: "sarai.exe",
 
   // Each skill is just a name. Clicking "Install" fills its loading bar to 100%.
+   // Each skill: [name, level from 0 to 100]
   skills: [
-    "Frontend Development",
-    "UI/UX Design",
-    "AWS",
-    "Docker",
-    "GitHub",
-    "Collaboration",
+    ["AWS", 75],
+    ["Figma", 85],
+    ["Docker", 65],
+    ["Blender", 75],
+    ["Python", 80],
+    ["JavaScript", 90],
+    [ "Java", 80],
+    ["Flutter", 75],
+    ["C/C++", 70],
+    ["React", 80],
   ],
 
   // Each project shows up as a file in the projects window.
@@ -83,9 +88,9 @@ const SITE = {
   // Trophies: the player unlocks each fact by reaching this score in the runner.
   // Each trophy: [score needed, text revealed]
   trophies: [
-    [50,  "Fun fact: I'm a senior at Rutgers studying Computer Science with a minor in Psychology."],
-    [150, "Fun fact: I'm the Webmaster for the Rutgers Marching Band."],
-    [300, "Secret: RUMBL is basically Tinder for recipes. Add your own fun facts here!"],
+    [50,  "I'm currently working on a Space Platform game!."],
+    [150, "I play the saxophone for the Rutgers Marching Band"],
+    [300, "I have two dogs, both are yorkies!"],
   ],
 };
 
@@ -320,26 +325,39 @@ saverCanvas.addEventListener("click", () => {
 /* ---------------------------------------------------------------------
    7. SKILLS - click "Install" and the loading bar fills up
    --------------------------------------------------------------------- */
+
 $("#skills").innerHTML = SITE.skills
-  .map((label, index) => `
+  .map(([label, level], index) => `
     <div class="sk">
-      <button class="bv" data-i="${index}" aria-label="Install ${label}">Install ${label}</button>
+      <button class="bv" data-i="${index}" aria-label="Download ${label}">Download ${label}</button>
       <div class="bar inset"><i id="b${index}"></i></div>
       <span class="pct" id="p${index}">0%</span>
     </div>`)
   .join("");
 
 $$("#skills button").forEach((button) => {
+
   button.addEventListener("click", () => {
     const index = button.dataset.i;
+    const level = SITE.skills[index][1];
     const fill = $("#b" + index);
+    const percentText = $("#p" + index);
 
-    fill.style.width = "0"; // reset, then let CSS animate the bar to full
-    requestAnimationFrame(() => requestAnimationFrame(() => (fill.style.width = "100%")));
-    $("#p" + index).textContent = "Done";
+    // Reset, then let the bar fill up to this skill's level.
+    fill.style.width = "0";
+    requestAnimationFrame(() => requestAnimationFrame(() => (fill.style.width = level + "%")));
+
+    // Count the number up alongside the bar.
+    clearInterval(button.counter);
+    let shown = 0;
+    percentText.textContent = "0%";
+    button.counter = setInterval(() => {
+      shown = Math.min(level, shown + 3);
+      percentText.textContent = shown + "%";
+      if (shown >= level) clearInterval(button.counter);
+    }, 40);
   });
 });
-
 
 /* ---------------------------------------------------------------------
    8. PROJECTS - file explorer with filter buttons and a preview panel
