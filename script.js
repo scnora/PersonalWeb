@@ -838,7 +838,7 @@ function showQuote(text, author) {
 
 async function fetchQuote() {
   const response = await fetch("https://api.api-ninjas.com/v2/quoteoftheday", {
-    headers: { "X-Api-Key": uJsLZwFnQr43MYLeNkrlO46QQtLSvatrJYGs3HIv },
+    headers: { "X-Api-Key": QUOTE_API_KEY },
   });
   if (!response.ok) throw new Error("API says " + response.status);
 
