@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Sarai Ojeda – Portfolio</title>
+    <title>Sarai Ojeda</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&display=swap"
@@ -307,8 +307,22 @@
           </p>
           <ul class="trophies inset" id="trophies"></ul>
         </div>
-      </section>
-
+        </section>
+        <section class="win w12" id="quote" aria-labelledby="t-quote">
+        <div class="tb">
+            <svg><use href="#i-doc" /></svg><span class="t" id="t-quote">quote_of_the_day.txt</span>
+            <span class="wb">
+            <button data-act="min" aria-label="Minimize quote window">_</button>
+            <button data-act="close" aria-label="Close quote window">x</button>
+            </span>
+        </div>
+        <div class="bd">
+            <figure class="quote inset" aria-live="polite">
+            <blockquote id="quoteText">Loading today's quote...</blockquote>
+            <figcaption id="quoteAuthor"></figcaption>
+            </figure>
+        </div>
+        </section>
       <!-- ===== WINDOW: contact - the mail form. EDIT ME: the address in the "To" box (also set SITE.email in script.js). ===== -->
     <section class="win w12" id="contact" aria-labelledby="t-contact">
         <div class="tb">
@@ -336,34 +350,49 @@
             </div>
           </div>
           <div>
+            
+        <form action="https://formspree.io/f/xzeebldp" method="POST">
             <div class="fld">
-              <label for="to">To:</label>
-              <div class="inset" id="to">saraiojeda005@gmail.com</div>
+                <label for="to">To:</label>
+                <div class="inset" id="to">saraiojeda005@gmail.com</div>
             </div>
+
             <div class="fld">
-              <label for="n">From:</label
-              ><input class="inset" id="n" autocomplete="name" placeholder="Your name" />
+                <label for="n">From:</label>
+                <input class="inset" id="n" name="name" autocomplete="name" placeholder="Your name" required />
             </div>
+
             <div class="fld">
-              <label for="e">Email:</label
-              ><input
+                <label for="e">Email:</label>
+                <input
                 class="inset"
                 id="e"
+                name="email"
                 type="email"
                 autocomplete="email"
                 placeholder="you@example.com"
-              />
+                required
+                />
             </div>
+
             <div class="fld">
-              <textarea
+                <textarea
                 class="inset"
                 id="m"
+                name="message"
                 aria-label="Message"
                 placeholder="Type your message here"
-              ></textarea>
+                required
+                ></textarea>
             </div>
-            <button class="btn bv hot" id="send">Send message</button>
-          </div>
+
+            <!-- Formspree extras: the email subject you'll see, and a hidden spam trap (leave empty) -->
+            <input type="hidden" name="_subject" value="New message from my portfolio" />
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none" />
+
+            <button class="btn bv hot" id="send" type="submit">Send message</button>
+        </form>
+
         </div>
       </section>
     </main>

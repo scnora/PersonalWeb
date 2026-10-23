@@ -814,11 +814,8 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  background:
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 3px),
-    linear-gradient(rgba(62, 168, 255, 0.25) 1px, transparent 1px) 0 0/36px 36px,
-    linear-gradient(90deg, rgba(62, 168, 255, 0.25) 1px, transparent 1px) 0 0/36px 36px,
-    #050514;
+  background-image: url("image/wallpaper.jpg");
+
 }
 #gameCanvas {
   display: block;
@@ -857,4 +854,32 @@ textarea {
   padding: 0;
   text-align: left;
   font-size: 21px;
+}
+
+
+/* Quote of the day */
+.quote {
+  margin: 0;
+  padding: 20px 24px;
+  background: #fff7a8; /* sticky-note yellow */
+  color: var(--ink);
+  text-align: center;
+}
+.quote blockquote {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+}
+.quote blockquote::before {
+  content: "✦ ";
+  color: var(--pink);
+}
+.quote blockquote::after {
+  content: " ✦";
+  color: var(--pink);
+}
+.quote figcaption {
+  margin-top: 10px;
+  font: 700 13px var(--px);
+  color: var(--violet);
 }

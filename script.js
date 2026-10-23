@@ -412,21 +412,7 @@ $("#copy").addEventListener("click", async () => {
   }
 });
 
-// "Send message" opens the visitor's email app with everything filled in.
-// (There is no server, so this is how a plain HTML site can send mail.)
-$("#send").addEventListener("click", () => {
-  const name = $("#n").value.trim();
-  const email = $("#e").value.trim();
-  const message = $("#m").value.trim();
 
-  if (!name || !email || !message) {
-    showToast("Add your name, email, and message first");
-    return;
-  }
-  const subject = encodeURIComponent("Hello from " + name);
-  const body = encodeURIComponent(`${message}\n\n${name} (${email})`);
-  location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
-});
 
 
 /* ---------------------------------------------------------------------
@@ -816,4 +802,112 @@ function endRound() {
 $("#gx").addEventListener("click", closeGame);
 addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !gameScreen.hidden) closeGame();
+});
+
+
+/* ---------------------------------------------------------------------
+   12. API call for quotes 
+   --------------------------------------------------------------------- */
+// fetch("https://api.api-ninjas.com/v2/quotes?categories=success,wisdom", {
+//   headers: { 'X-Api-Key': uJsLZwFnQr43MYLeNkrlO46QQtLSvatrJYGs3HIv },
+// });
+
+
+
+  /* ---------------------------------------------------------------------
+   12. QUOTE OF THE DAY
+   --------------------------------------------------------------------- */
+function showQuote(text, author) {
+  $("#quoteText").textContent = text; // textContent is safe even if the API sends odd characters
+  $("#quoteAuthor").textContent = author ? "- " + author : "";
+}
+
+// YOUR EXISTING FETCH CALL GOES HERE. It should return { text, author }.
+// async function fetchQuote() {
+//   const response = await fetch("https://api.api-ninjas.com/v2/quotes?categories=success,wisdom", {
+//     headers: { "X-Api-Key": uJsLZwFnQr43MYLeNkrlO46QQtLSvatrJYGs3HIv },
+//   });
+//   if (!response.ok) throw new Error("Quote request failed: " + response.status);
+
+//   const data = await response.json();
+//   console.log(data); // check this in the console (F12) to see what the API sent back
+
+//   const quote = Array.isArray(data) ? data[0] : data; // the API returns a list, so take the first item
+//   return { text: quote.quote, author: quote.author };
+// }
+
+async function fetchQuote() {
+  const response = await fetch("https://api.api-ninjas.com/v2/quoteoftheday", {
+    headers: { "X-Api-Key": uJsLZwFnQr43MYLeNkrlO46QQtLSvatrJYGs3HIv },
+  });
+  if (!response.ok) throw new Error("API says " + response.status);
+
+  const data = await response.json();
+  const quote = Array.isArray(data) ? data[0] : data; // handles a list or a single object
+  return { text: quote.quote, author: quote.author };
+}
+
+
+async function loadQuote() {
+  const today = new Date().toDateString();
+
+  // Reuse today's quote if we already have it, so reloads don't spend API calls.
+  try {
+    const saved = JSON.parse(localStorage.getItem("yn-quote"));
+    if (saved && saved.day === today) return showQuote(saved.text, saved.author);
+  } catch (error) {
+    /* no saved quote, carry on */
+  }
+
+  try {
+    const quote = await fetchQuote();
+    showQuote(quote.text, quote.author);
+    try {
+      localStorage.setItem("yn-quote", JSON.stringify({ day: today, ...quote }));
+    } catch (error) {
+      /* storage blocked, fine */
+    }
+  } catch (error) {
+    showQuote("Today is a good day to build something.", ""); // shown if the API is down
+  }
+}
+loadQuote();
+
+
+
+
+// // Contact Form interaction 
+
+const FORM_ENDPOINT = "https://formspree.io/f/xzeebldp"; // my persoanl Formspree
+
+$("#send").addEventListener("click", async () => {
+  const name = $("#n").value.trim();
+  const email = $("#e").value.trim();
+  const message = $("#m").value.trim();
+
+  if (!name || !email || !message) {
+    showToast("Add your name, email, and message first");
+    return;
+  }
+
+  const sendButton = $("#send");
+  sendButton.disabled = true;
+  showToast("Sending...");
+
+  try {
+    const response = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    });
+    if (!response.ok) throw new Error("Send failed: " + response.status);
+
+    $("#n").value = $("#e").value = $("#m").value = ""; // clear the form
+    showToast("Message sent! Thank you.");
+  } catch (error) {
+    console.error("Contact form failed:", error);
+    showToast("Couldn't send. Please try again.");
+  } finally {
+    sendButton.disabled = false;
+  }
 });
