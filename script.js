@@ -32,9 +32,6 @@ const SITE = {
     ["Figma", 85],
     ["Docker", 65],
     ["Blender", 75],
-    ["Python", 80],
-    ["JavaScript", 90],
-    [ "Java", 80],
     ["Flutter", 75],
     ["C/C++", 70],
     ["React", 80],
@@ -48,22 +45,30 @@ const SITE = {
   projects: [
     {
       name: "RUMBL", type: "web", icon: "crt",
-      description: "Frontend web application similar to Tinder but for recipes.",
+      description: "Frontend web application similar to Tinder but for recipes. Implemented with React and integrated with a backend API for recipe data.",
       image: "https://www.sarai-ojeda.com/image/rumbl_thumbnail.png",
       links: [["GitHub", "https://github.com/scnora/RUMBL"]],
     },
     {
       name: "Psychora", type: "design", icon: "cd",
-      description: "UI for a mental health app.",
+      description: "UI for a mental health app. This project's main idea was to bridge the gap between users and mental health resources. Won Best use of Adobe Express at CreateRU 2025.",
       image: "https://www.sarai-ojeda.com/image/Psychora.jpg",
       links: [["Figma", "https://www.figma.com/design/BeZ1zN7yrnEJZU3WtIyo4F/Psychora?node-id=1-98&t=LzVNxz4QsFxlHpzA-1"]],
     },
     {
       name: "Namer App", type: "app", icon: "modem",
-      description: "A Flutter app that generates random names for users.",
+      description: "A Flutter app that generates random names for users. This was a quick and simple project to help learn Flutter!",
       image: "https://www.sarai-ojeda.com/image/namer_thumbnail.png",
       links: [["GitHub", "https://github.com/scnora/Namer-App"]],
     },
+    {
+        name: "Starbuck Rebrand", type: "design", icon:"floppy",
+        description:
+         "A UI design to help users understand the drinks, get personalize recommendations, and review their drinks! Ever wanted to try a drink but didn't know if it was too sweet, too bitter, or too strong?  This redesign helps you find the perfect drink for you.",
+
+        image: "https://www.sarai-ojeda.com/image/Starbucks-redesign.png", 
+        links: [["Figma", "https://www.figma.com/design/LOSQ3beb9ruBO7f3RMeONK/Starbucks?node-id=0-1&p=f&t=123ceMOV3rWuvJJi-0"]],
+    }
   ],
 
   // Game mode rules (the runner works a lot like the Chrome dino game)
