@@ -29,7 +29,7 @@ const SITE = {
    // Each skill: [name, level from 0 to 100]
   skills: [
     ["AWS", 75],
-    ["Figma", 85],
+    ["frontend", 85],
     ["Docker", 65],
     ["Blender", 75],
     ["Flutter", 75],
@@ -68,6 +68,15 @@ const SITE = {
 
         image: "https://www.sarai-ojeda.com/image/Starbucks-redesign.png", 
         links: [["Figma", "https://www.figma.com/design/LOSQ3beb9ruBO7f3RMeONK/Starbucks?node-id=0-1&p=f&t=123ceMOV3rWuvJJi-0"]],
+    },
+    {
+        name: "Save the King", type: "web", icon:"cd",
+        description:
+         "Learned and developed a 2D game using web technologies, focusing on game mechanics and user interaction. Learned how to implement a game loop, input handling, and collision detection, as well as understanding importance of OOP and code organization.",
+
+        image: "https://www.sarai-ojeda.com/image/king.png", 
+        links: [["GitHub", "https://github.com/scnora/First-2D-Game"]],
+
     }
   ],
 
